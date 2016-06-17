@@ -142,6 +142,13 @@
 
         //---------------------------------
 
+        ElemSet.prototype.val = function ( content ) {
+          this.elem.value = content;
+          return this;
+        };
+
+        //---------------------------------
+
         ElemSet.prototype.html = function ( content ) {
           var elem = this.elem;
 
