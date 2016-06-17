@@ -1,0 +1,142 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Test TiniLib</title>
+
+  <style>
+
+    BODY {
+      font-family: Trebuchet MS;
+    }
+
+    H1, H2 {
+      font-weight: normal;
+    }
+
+    .wrapper {
+      width: 600px;
+      margin: 2rem auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <h1>Тесты для tinylib.js</h1>
+
+    <div class="content" data-test="My content">
+      <p class="text">Donec quis finibus metus. Pellentesque in velit ut nulla luctus fermentum id ut orci. </p>
+
+      <p><i>Результаты тестов выводятся в консоль.</i></p>
+
+      <button class="button">Press Me</button>
+      <button class="button">Press Me Too</button>
+    </div>
+  </div>
+
+  <script src="tinylib.js"></script>
+  <script>
+    var $ = tinyLib;
+
+    test( {
+      name: 'Get single',
+      func: $.get('.content')
+      }
+    );
+
+    test( {
+      name: 'Get single & add class',
+      func: $.get('.content').addClass('hello')
+    });
+
+    test( {
+      name: 'Get single & remove class',
+      func: $.get('.content').addClass('hello').removeClass('hello')
+    });
+
+    test( {
+      name: 'Get single & get html',
+      func: $.get( '.text' ).html()
+      }
+    );
+
+    test( {
+      name: 'Get single & append elem',
+      func: $.get( '.text' ).append( $.create('span').html('Hi!'))
+      }
+    );
+
+    test( {
+      name: 'Get single & prepend elem',
+      func: $.get( '.text' ).prepend( $.create('span').html('Hi!'))
+      }
+    );
+
+    test( {
+      name: 'Get multiply',
+      func: $.get( '.button' )
+      }
+    );
+
+    // test( {
+    //   name: 'Get multiply & add class',
+    //   func: $.get( '.button' ).addClass( 'hello' )
+    //   }
+    // );
+
+    test( {
+      name: 'Create elem',
+      func: $.create( 'div' )
+      }
+    );
+
+    test( {
+      name: 'Create elem & add html',
+      func: $.create( 'div' ).html('hello')
+      }
+    );
+
+    test( {
+      name: 'Create elem & add class',
+      func: $.create( 'div' ).addClass( 'hello' )
+      }
+    );
+
+    test( {
+      name: 'Get elem & get attrs',
+      func: $.get( '.content' ).attr( 'data-test' )
+      }
+    );
+
+    test( {
+      name: 'Get elem & set single attr',
+      func: $.get( '.content' ).attr( 'data-test', 'Hello!' )
+      }
+    );
+
+    test( {
+      name: 'Get elem & set multiply attrs',
+      func: $.get( '.content' ).attr( {
+        'data-greeting': 'Hello!',
+        'data-bye': 'Good bye!'
+      })
+      }
+    );
+
+    function test ( queryObj ) {
+      var name = queryObj.name;
+      var result = queryObj.func;
+
+      $.out( name, 'h3' );
+      $.dir( result );
+
+      if ( result.elem ) {
+        $.dir( result.elem );
+      }
+    }
+
+
+  </script>
+
+</body>
+</html>
