@@ -143,6 +143,10 @@
         //---------------------------------
 
         ElemSet.prototype.val = function ( content ) {
+          if ( !content ) {
+            return this.elem.value;
+          }
+
           this.elem.value = content;
           return this;
         };
