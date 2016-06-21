@@ -171,13 +171,13 @@
           'h1': 'font: 2.5em/1 Arial; color: crimson;',
           'h2': 'font: 2em/1 Arial; color: orangered;',
           'h3': 'font: 1.6em/1 Arial; color: olivedrab;',
-          'val': 'font: bold 1.3em/1 Arial; color: midnightblue',
+          'h4': 'font: bold 1.3em/1 Arial; color: midnightblue',
           'warn': 'padding: 0 .3rem; background: crimson; font: 2em/1 Arial; color: white'
         };
 
         tinyLib.out = function( msg, style ) {
           if ( !style || !consoleStyles[ style ] ) {
-            style = 'val';
+            style = '';
           }
           console.log( '%c' + msg, consoleStyles[ style ] );
         };
