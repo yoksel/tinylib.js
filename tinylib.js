@@ -93,14 +93,15 @@
         //---------------------------------
 
         ElemSet.prototype.append = function( elem ) {
+          var itemsToAdd = inputElemToItemsList( elem );
+          var that = this;
 
-          var elemToAdd = elem.elem;
-
-          if ( typeof elem === 'string' ) {
-            elemToAdd = tinyLib.create( elem ).elem;
-          }
-
-          this.elem.appendChild( elemToAdd );
+          itemsToAdd.forEach( function( item ) {
+            if ( !item ) {
+              return;
+            }
+            that.elem.appendChild( item.elem );
+          });
 
           return this;
         };
@@ -108,14 +109,15 @@
         //---------------------------------
 
         ElemSet.prototype.prepend = function( elem ) {
+          var itemsToAdd = inputElemToItemsList( elem );
+          var that = this;
 
-          var elemToAdd = elem.elem;
-
-          if ( typeof elem === 'string' ) {
-            elemToAdd = tinyLib.create( elem ).elem;
-          }
-
-          this.elem.insertBefore( elemToAdd, this.elem.firstChild );
+          itemsToAdd.forEach( function( item ) {
+            if ( !item ) {
+              return;
+            }
+            that.elem.insertBefore( item.elem, that.elem.firstChild );
+          });
 
           return this;
         };
@@ -191,6 +193,26 @@
         tinyLib.dir = function( msg ) {
           console.dir( msg );
         };
+
+        //---------------------------------
+
+        function inputElemToItemsList( elem ) {
+          var elemToAdd = elem;
+          var itemsToAdd = [];
+
+          if ( typeof elem === 'string' ) {
+            elemToAdd = tinyLib.create( elem );
+            itemsToAdd.push( elemToAdd );
+          }
+          else if ( Array.isArray( elem ) === true ) {
+            itemsToAdd = elem;
+          }
+          else {
+            itemsToAdd.push( elemToAdd );
+          }
+
+          return itemsToAdd;
+        }
 
         //---------------------------------
 

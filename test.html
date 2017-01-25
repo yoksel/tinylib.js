@@ -73,8 +73,26 @@
     );
 
     test( {
+      name: 'Get single & append two elems',
+      func: $.get( '.text' ).append( [
+        $.create('div').html('(Get single & append two elems - 1)'),
+        $.create('div').html('(Get single & append two elems - 2)')
+      ])
+      }
+    );
+
+    test( {
       name: 'Get single & prepend elem',
       func: $.get( '.text' ).prepend( $.create('span').html('Hi!'))
+      }
+    );
+
+    test( {
+      name: 'Get single & prepend two elems',
+      func: $.get( '.text' ).prepend( [
+        $.create('div').html('(Get single & prepend two elems - 1)'),
+        $.create('div').html('(Get single & prepend two elems - 2)')
+      ])
       }
     );
 
