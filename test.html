@@ -153,6 +153,28 @@
       }
     );
 
+    test( {
+      name: 'Get elem & get single data-attr',
+      func: $.get( '.content' ).data( 'test' )
+      }
+    );
+
+    test( {
+      name: 'Get elem & get pair of data-attr',
+      func: $.get( '.content' ).data( ['greeting','bye'] )
+      }
+    );
+
+    test( {
+      name: 'Get elem & set pair of data-attr',
+      func: $.get( '.content' ).data( {
+        'test': 'hello',
+        'test-2': 'hello-2'
+      } )
+      }
+    );
+
+
     function test ( queryObj ) {
       var name = queryObj.name;
       var result = queryObj.func;
@@ -160,7 +182,7 @@
       $.out( name, 'h3' );
       $.dir( result );
 
-      if ( result.elem ) {
+      if ( result && result.elem ) {
         $.dir( result.elem );
       }
     }

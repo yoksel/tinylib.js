@@ -182,6 +182,45 @@
         };
 
         //---------------------------------
+
+        ElemSet.prototype.data = function ( content ) {
+          var elem = this.elem;
+
+          if( content ) {
+            // Input: list
+            if ( Array.isArray( content ) === true ) {
+              var dataList = {};
+
+              content.forEach(function( item ) {
+                var data = elem.dataset[ item ];
+                if ( data ) {
+                  dataList[ item ] = data;
+                }
+              });
+
+              return dataList;
+            }
+            // Input: object
+            else if ( typeof content === 'object' ) {
+
+              for( var key in content ) {
+                elem.dataset[ key ] = content[ key ];
+              }
+
+              return elem.dataset;
+            }
+            // Input: string
+            else if( typeof content === 'string' ) {
+              var data = elem.dataset[ content ];
+              return data;
+            }
+
+          }
+
+          return null;
+        };
+
+        //---------------------------------
         // Colored console output
 
         var consoleStyles = {
