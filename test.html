@@ -45,6 +45,12 @@
     );
 
     test( {
+      name: 'Get single in context',
+      func: $.get('.text', $.get('.content'))
+      }
+    );
+
+    test( {
       name: 'Get single & add class',
       func: $.get('.content').addClass('hello')
     });

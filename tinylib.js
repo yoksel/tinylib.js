@@ -21,8 +21,14 @@
 
         //---------------------------------
 
-        tinyLib.get = function( selector ) {
-          var nodeList = doc.querySelectorAll( selector );
+        tinyLib.get = function( selector, context ) {
+
+          var contextElem = context ? context : doc;
+          if ( context && context.elem  ) {
+            contextElem = context.elem;
+          }
+
+          var nodeList = contextElem.querySelectorAll( selector );
           var elemsArr = Array.prototype.slice.call( nodeList );
 
           var elemsList = elemsArr.map( function( item ) {
