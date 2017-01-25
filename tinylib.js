@@ -124,6 +124,15 @@
 
         //---------------------------------
 
+        ElemSet.prototype.clone = function() {
+          var elemToClone = this.elem;
+          var clonedElem = elemToClone.cloneNode(true);
+
+          return new ElemSet( clonedElem );
+        };
+
+        //---------------------------------
+
         ElemSet.prototype.attr = function( attrName, attrVal ) {
 
           var elem = this.elem;

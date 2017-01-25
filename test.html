@@ -102,6 +102,12 @@
       }
     );
 
+    test( {
+      name: 'Clone',
+      func: $.get('.content').append( $.get('.text').clone() )
+      }
+    );
+
     // test( {
     //   name: 'Get multiply & add class',
     //   func: $.get( '.button' ).addClass( 'hello' )
