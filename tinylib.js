@@ -51,7 +51,7 @@
 
         //---------------------------------
 
-        tinyLib.createNS = function( elemName ) {
+        tinyLib.createNS = function( tagName ) {
           var elem = doc.createElementNS( ns, tagName );
           return new ElemSet( elem );
         };
