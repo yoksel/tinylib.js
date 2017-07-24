@@ -61,6 +61,11 @@
     });
 
     test( {
+      name: 'Get single & toggle class',
+      func: $.get('.content').addClass('hello').toggleClass('hello--toggle')
+    });
+
+    test( {
       name: 'Get single & get html',
       func: $.get( '.text' ).html()
       }
