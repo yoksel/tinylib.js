@@ -187,7 +187,7 @@
         return this;
       }
 
-      return elem.innerHTML;
+      return this;
     };
 
     //---------------------------------
