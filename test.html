@@ -185,9 +185,11 @@
       var result = queryObj.func;
 
       $.out( name, 'h3' );
+      $.out( 'result:' );
       $.dir( result );
 
       if ( result && result.elem ) {
+        $.out( 'result.elem:' );
         $.dir( result.elem );
       }
     }
