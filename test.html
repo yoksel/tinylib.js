@@ -51,6 +51,11 @@
     );
 
     test( {
+      name: 'Get single & add empty class',
+      func: $.get('.content').addClass(null)
+    });
+
+    test( {
       name: 'Get single & add class',
       func: $.get('.content').addClass('hello')
     });
